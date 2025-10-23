@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclos de la Naturaleza - Edición Halloween 👻</title>
+    <!-- Incluye Tailwind CSS para un diseño rápido y responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados para la temática de Halloween */
+        :root {
+            --color-primary: #FF7F50; /* Naranja Calabaza */
+            --color-secondary: #4B0082; /* Morado Índigo */
+            --color-text: #F8F8FF; /* Blanco Fantasma */
+            --color-bg: #1A1A1A; /* Negro Oscuro */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+        }
+        /* Estilo de la Pestaña Principal */
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            border-bottom: 4px solid var(--color-secondary);
+            font-weight: 700;
+        }
+        /* Estilo de la Sub-Pestaña de Recursos */
+        .resource-tab-button {
+            transition: all 0.2s ease;
+            color: var(--color-text);
+        }
+        .resource-tab-button.active {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            font-weight: 700;
+            border-radius: 6px 6px 0 0;
+        }
+        .cycle-card {
+            border: 2px solid var(--color-primary);
+            box-shadow: 0 10px 15px -3px rgba(255, 127, 80, 0.5); /* Sombra naranja brillante */
+        }
+        /* Estilo para subíndices químicos */
+        .chem-formula sub {
+            vertical-align: sub;
+            font-size: smaller;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen">
+
+    <!-- Encabezado de la Aplicación -->
+    <header class="text-center mb-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-2" style="color: var(--color-primary);">
+            Ciclos de la Naturaleza 🌍🧪
+        </h1>
+        <p class="text-xl italic" style="color: var(--color-text);">¡Edición Misterio Biogeoquímico! 👻🧬</p>
+    </header>
+
+    <!-- Contenedor Principal de la Aplicación -->
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Pestañas de Navegación Principales (Ciclos) -->
+        <div class="flex flex-wrap justify-center mb-6 bg-gray-900/50 rounded-xl p-2 shadow-xl">
+            <button class="tab-button active flex-1 p-3 rounded-lg mx-1 my-1 text-sm md:text-base" onclick="openCycle(event, 'nitrogeno')">
+                Nitrógeno 💀
+            </button>
+            <button class="tab-button flex-1 p-3 rounded-lg mx-1 my-1 text-sm md:text-base" onclick="openCycle(event, 'carbono')">
+                Carbono 🔥
+            </button>
+            <button class="tab-button flex-1 p-3 rounded-lg mx-1 my-1 text-sm md:text-base" onclick="openCycle(event, 'agua')">
+                Agua 💧
+            </button>
+            <button class="tab-button flex-1 p-3 rounded-lg mx-1 my-1 text-sm md:text-base" onclick="openCycle(event, 'fosforo')">
+                Fósforo 🦴
+            </button>
+        </div>
+
+        <!-- Contenido de los Ciclos -->
+
+        <!-- Ciclo del Nitrógeno -->
+        <div id="nitrogeno" class="cycle-content cycle-card p-6 rounded-xl bg-gray-900 shadow-lg">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">Ciclo del Nitrógeno 💀</h2>
+            <p class="mb-4">El nitrógeno (N) es vital para el ADN y las proteínas, pero está en la atmósfera como gas (<span class="chem-formula">N<sub>2</sub></span>) que las plantas no pueden usar directamente. ¡Las bacterias son las magas de este ciclo! 🧙‍♀️</p>
+
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-primary);">Fases Misteriosas:</h3>
+            <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+                <li>Fijación ⚡: Bacterias (¡brujas del suelo!) convierten el <span class="chem-formula">N<sub>2</sub></span> atmosférico en amoníaco (<span class="chem-formula">NH<sub>3</sub></span>).</li>
+                <li>Nitrificación 🦠: Otras bacterias transforman el amoníaco en nitritos (<span class="chem-formula">NO<sub>2</sub><sup>-</sup></span>) y luego en nitratos (<span class="chem-formula">NO<sub>3</sub><sup>-</sup></span>), la forma que las plantas pueden absorber.</li>
+                <li>Asimilación 🌱: Las plantas usan los nitratos para crear biomoléculas. Los animales lo obtienen al comer esas plantas.</li>
+                <li>Amonificación 💩: Cuando los organismos mueren (¡muerte viviente!) o excretan, los descomponedores liberan amoníaco al suelo.</li>
+                <li>Desnitrificación 💨: Bacterias desnitrificantes regresan el nitrógeno a la atmósfera como <span class="chem-formula">N<sub>2</sub></span>, cerrando el ciclo.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-4" style="color: var(--color-primary);">Recursos Incrustados 🎬🖼️</h3>
+            
+            <!-- Sub-Pestañas de Recursos -->
+            <div class="flex justify-start mb-4 border-b border-gray-700">
+                <button class="resource-tab-button resource-nitrogeno active flex-1 md:flex-none p-3 text-sm md:text-base hover:bg-gray-800 transition duration-150" onclick="openResourceTab(event, 'nitrogeno', 'video')">
+                    Video Explicativo 🎥
+                </button>
+                <button class="resource-tab-button resource-nitrogeno flex-1 md:flex-none p-3 text-sm md:text-base hover:bg-gray-800 transition duration-150" onclick="openResourceTab(event, 'nitrogeno', 'image')">
+                    Infografía 🖼️
+                </button>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Contenido de Video (Sub-pestaña) -->
+                <div id="nitrogeno-video" class="resource-content">
+                    <div class="bg-gray-800 p-3 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-bold mb-2 text-white">Video del Ciclo del Nitrógeno</h4>
+                        <!-- Contenedor para relación de aspecto 16:9 -->
+                        <div class="relative pt-[56.25%]">
+                            <iframe
+                                class="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-orange-500"
+                                src="https://www.youtube.com/embed/Nk-IyrSQVMQ"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                title="Ciclo del Nitrógeno"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contenido de Imagen (Sub-pestaña) -->
+                <div id="nitrogeno-image" class="resource-content hidden">
+                    <div class="bg-gray-800 p-3 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-bold mb-2 text-white">Infografía del Ciclo del Nitrógeno</h4>
+                        <img
+                            src="https://biobox-water.com/wp-content/uploads/2025/03/el-ciclo-del-nitrogeno-infografia-1024x640.jpg"
+                            alt="Infografía del Ciclo del Nitrógeno"
+                            class="w-full h-auto rounded-lg object-contain border-2 border-orange-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x375/4B0082/FF7F50?text=Error+al+cargar+Infografía+del+Nitrógeno'"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ciclo del Carbono -->
+        <div id="carbono" class="cycle-content cycle-card p-6 rounded-xl bg-gray-900 shadow-lg hidden">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">Ciclo del Carbono 🔥</h2>
+            <p class="mb-4">El carbono (C) es el esqueleto de toda la vida orgánica y se mueve entre la atmósfera (<span class="chem-formula">CO<sub>2</sub></span>), los océanos, la tierra y los seres vivos. Tiene una etapa rápida (biológica) y una lenta (geológica).</p>
+
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-primary);">Fases Cruciales:</h3>
+            <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+                <li>Fotosíntesis ☀️: Las plantas (productores) capturan <span class="chem-formula">CO<sub>2</sub></span> de la atmósfera y lo convierten en azúcares (materia orgánica). ¡Captura de almas!</li>
+                <li>Respiración 🌬️: Plantas y animales liberan <span class="chem-formula">CO<sub>2</sub></span> a la atmósfera al quemar esos azúcares para obtener energía.</li>
+                <li>Descomposición 🦠: Descomponedores liberan carbono de organismos muertos y desechos de nuevo al suelo o a la atmósfera.</li>
+                <li>Sedimentación ⛏️: A lo largo de millones de años, el carbono orgánico puede formar rocas sedimentarias o combustibles fósiles (carbón, petróleo).</li>
+                <li>Combustión 🏭: Los humanos liberamos carbono atrapado (fósiles) a la atmósfera en forma de <span class="chem-formula">CO<sub>2</sub></span> al quemarlos. ¡El fantasma del calentamiento!</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold mb-4" style="color: var(--color-primary);">Recursos Incrustados 🎬🖼️</h3>
+
+            <!-- Sub-Pestañas de Recursos -->
+            <div class="flex justify-start mb-4 border-b border-gray-700">
+                <button class="resource-tab-button resource-carbono active flex-1 md:flex-none p-3 text-sm md:text-base hover:bg-gray-800 transition duration-150" onclick="openResourceTab(event, 'carbono', 'video')">
+                    Video Explicativo 🎥
+                </button>
+                <button class="resource-tab-button resource-carbono flex-1 md:flex-none p-3 text-sm md:text-base hover:bg-gray-800 transition duration-150" onclick="openResourceTab(event, 'carbono', 'image')">
+                    Infografía 🖼️
+                </button>
+            </div>
+
+            <div class="space-y-6">
+                 <!-- Contenido de Video (Sub-pestaña) -->
+                <div id="carbono-video" class="resource-content">
+                    <div class="bg-gray-800 p-3 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-bold mb-2 text-white">Video del Ciclo del Carbono</h4>
+                        <!-- Contenedor para relación de aspecto 16:9 -->
+                        <div class="relative pt-[56.25%]">
+                            <iframe
+                                class="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-orange-500"
+                                src="https://www.youtube.com/embed/jQFSCmSu5XM"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                title="Ciclo del Carbono"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contenido de Imagen (Sub-pestaña) -->
+                <div id="carbono-image" class="resource-content hidden">
+                    <div class="bg-gray-800 p-3 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-bold mb-2 text-white">Infografía del Ciclo del Carbono</h4>
+                        <img
+                            src="https://concepto.de/wp-content/uploads/2019/07/ciclo-de-carbono.png"
+                            alt="Infografía del Ciclo del Carbono"
+                            class="w-full h-auto rounded-lg object-contain border-2 border-orange-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/4B0082/FF7F50?text=Error+al+cargar+Infografía+del+Carbono'"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ciclo del Agua -->
+        <div id="agua" class="cycle-content cycle-card p-6 rounded-xl bg-gray-900 shadow-lg hidden">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">Ciclo del Agua 💧</h2>
+            <p class="mb-4">El ciclo hidrológico es el motor de la vida, moviendo el agua (<span class="chem-formula">H<sub>2</sub>O</span>) entre la Tierra, la atmósfera y los océanos, cambiando constantemente de estado (líquido, gas, sólido).</p>
+
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-primary);">Las Transformaciones del Hechizo:</h3>
+            <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+                <li>Evaporación/Sublimación ♨️: El Sol calienta el agua líquida (océanos, ríos) y la transforma en vapor (gas). La sublimación convierte hielo (sólido) directamente en vapor.</li>
+                <li>Transpiración 🌱: Las plantas liberan vapor de agua a través de sus hojas. ¡El aliento de la naturaleza!</li>
+                <li>Condensación ☁️: El vapor de agua se enfría en la atmósfera, se vuelve líquido y forma las nubes (gotitas microscópicas).</li>
+                <li>Precipitación 🌧️: Cuando las nubes se saturan, el agua cae como lluvia, nieve o granizo.</li>
+                <li>Infiltración/Escorrentía 🏞️: El agua en la superficie se infiltra en el suelo (formando acuíferos) o fluye sobre él (escorrentía) hacia ríos y mares.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-4" style="color: var(--color-primary);">Recursos Incrustados 🎬🖼️</h3>
+
+            <!-- Sub-Pestañas de Recursos -->
+            <div class="flex justify-start mb-4 border-b border-gray-700">
+                <button class="resource-tab-button resource-agua active flex-1 md:flex-none p-3 text-sm md:text-base hover:bg-gray-800 transition duration-150" onclick="openResourceTab(event, 'agua', 'video')">
+                    Video Explicativo 🎥
+                </button>
+                <button class="resource-tab-button resource-agua flex-1 md:flex-none p-3 text-sm md:text-base hover:bg-gray-800 transition duration-150" onclick="openResourceTab(event, 'agua', 'image')">
+                    Infografía 🖼️
+                </button>
+            </div>
+
+            <div class="space-y-6">
+                 <!-- Contenido de Video (Sub-pestaña) -->
+                <div id="agua-video" class="resource-content">
+                    <div class="bg-gray-800 p-3 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-bold mb-2 text-white">Video del Ciclo del Agua</h4>
+                        <!-- Contenedor para relación de aspecto 16:9 -->
+                        <div class="relative pt-[56.25%]">
+                            <iframe
+                                class="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-orange-500"
+                                src="https://www.youtube.com/embed/QDCohXW6blg"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                title="Ciclo del Agua"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contenido de Imagen (Sub-pestaña) -->
+                <div id="agua-image" class="resource-content hidden">
+                    <div class="bg-gray-800 p-3 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-bold mb-2 text-white">Diagrama del Ciclo (Corregido) 📊</h4>
+                        <img
+                            src="https://www.geoenciclopedia.com/wp-content/uploads/2018/02/Ciclo-del-agua-1.jpg"
+                            alt="Diagrama del Ciclo del Agua"
+                            class="w-full h-auto rounded-lg object-contain border-2 border-orange-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x337/4B0082/FF7F50?text=Error+al+cargar+Infografía+del+Agua'"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ciclo del Fósforo -->
+        <div id="fosforo" class="cycle-content cycle-card p-6 rounded-xl bg-gray-900 shadow-lg hidden">
+            <h2 class="text-3xl font-bold mb-4" style="color: var(--color-primary);">Ciclo del Fósforo 🦴</h2>
+            <p class="mb-4">El fósforo (P) es crucial para el ATP (energía), el ADN y las membranas celulares. ¡Es un ciclo sedimentario! No pasa por la atmósfera (salvo polvo o cenizas).</p>
+
+            <h3 class="text-xl font-semibold mb-2" style="color: var(--color-primary);">El Lento Viaje del Hueso:</h3>
+            <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+                <li>Meteorización ⛰️: La erosión (lluvia, viento) descompone las rocas fosfatadas, liberando fosfatos (<span class="chem-formula">PO<sub>4</sub><sup>3-</sup></span>) al suelo y al agua.</li>
+                <li>Asimilación 🌱: Las plantas absorben estos fosfatos. Los animales lo obtienen al comer plantas.</li>
+                <li>Devolución al Suelo 💀: Cuando los organismos mueren o excretan, los descomponedores liberan el fósforo de vuelta al suelo.</li>
+                <li>Sedimentación 🌊: El fósforo puede ser arrastrado al océano, donde se deposita en el fondo marino y con el tiempo, forma nuevas rocas.</li>
+                <li>Elevación Geológica 🌋: A lo largo de millones de años, los movimientos de la corteza terrestre pueden elevar estas rocas, exponiéndolas de nuevo a la meteorización. ¡El ciclo vuelve a comenzar!</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-4" style="color: var(--color-primary);">Recursos Incrustados 🎬🖼️</h3>
+            
+            <!-- Sub-Pestañas de Recursos -->
+            <div class="flex justify-start mb-4 border-b border-gray-700">
+                <button class="resource-tab-button resource-fosforo active flex-1 md:flex-none p-3 text-sm md:text-base hover:bg-gray-800 transition duration-150" onclick="openResourceTab(event, 'fosforo', 'video')">
+                    Video Explicativo 🎥
+                </button>
+                <button class="resource-tab-button resource-fosforo flex-1 md:flex-none p-3 text-sm md:text-base hover:bg-gray-800 transition duration-150" onclick="openResourceTab(event, 'fosforo', 'image')">
+                    Infografía 🖼️
+                </button>
+            </div>
+
+            <div class="space-y-6">
+                 <!-- Contenido de Video (Sub-pestaña) -->
+                <div id="fosforo-video" class="resource-content">
+                    <div class="bg-gray-800 p-3 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-bold mb-2 text-white">Video del Ciclo del Fósforo</h4>
+                        <!-- Contenedor para relación de aspecto 16:9 -->
+                        <div class="relative pt-[56.25%]">
+                            <iframe
+                                class="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-orange-500"
+                                src="https://www.youtube.com/embed/RDBlt6vBLxI"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                title="Ciclo del Fósforo"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contenido de Imagen (Sub-pestaña) -->
+                <div id="fosforo-image" class="resource-content hidden">
+                    <div class="bg-gray-800 p-3 rounded-lg shadow-inner">
+                        <h4 class="text-lg font-bold mb-2 text-white">Infografía del Ciclo del Fósforo</h4>
+                        <img
+                            src="https://concepto.de/wp-content/uploads/2019/07/Ciclo-del-fosforo-scaled.jpg"
+                            alt="Infografía del Ciclo del Fósforo"
+                            class="w-full h-auto rounded-lg object-contain border-2 border-orange-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/4B0082/FF7F50?text=Error+al+cargar+Infografía+del+Fósforo'"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Caja de Mensajes (Reemplazo de alert) -->
+        <div id="messageBox" class="message-box text-center">
+            <p id="messageContent" class="mb-4 text-lg font-semibold"></p>
+            <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition" onclick="closeMessageBox()">Cerrar ❌</button>
+        </div>
+    </div>
+
+    <!-- Script de la Aplicación -->
+    <script>
+        // Función para cambiar entre pestañas de recursos (video/imagen)
+        function openResourceTab(evt, cycleName, resourceType) {
+            var i, resourcecontent, resourcelinks;
+
+            // Oculta todo el contenido de recursos para ese ciclo (e.g., #nitrogeno-video, #nitrogeno-image)
+            resourcecontent = document.querySelectorAll(`#${cycleName} .resource-content`);
+            for (i = 0; i < resourcecontent.length; i++) {
+                resourcecontent[i].classList.add("hidden");
+            }
+
+            // Desactiva todos los botones de recursos para ese ciclo
+            resourcelinks = document.querySelectorAll(`.resource-tab-button.resource-${cycleName}`);
+            for (i = 0; i < resourcelinks.length; i++) {
+                resourcelinks[i].classList.remove("active");
+                // Reset styles for inner tabs
+                resourcelinks[i].style.backgroundColor = '';
+                resourcelinks[i].style.color = 'var(--color-text)';
+                resourcelinks[i].style.fontWeight = '400';
+            }
+
+            // Muestra el contenido del recurso actual y activa el botón
+            document.getElementById(`${cycleName}-${resourceType}`).classList.remove("hidden");
+            evt.currentTarget.classList.add("active");
+            evt.currentTarget.style.backgroundColor = 'var(--color-secondary)';
+            evt.currentTarget.style.color = 'var(--color-primary)';
+            evt.currentTarget.style.fontWeight = '700';
+        }
+
+        // Función original para cambiar entre pestañas principales
+        function openCycle(evt, cycleName) {
+            var i, tabcontent, tablinks;
+
+            // Oculta todo el contenido de ciclos
+            tabcontent = document.getElementsByClassName("cycle-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Desactiva todos los botones principales
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+                tablinks[i].style.backgroundColor = ''; 
+                tablinks[i].style.color = 'var(--color-text)';
+            }
+
+            // Muestra el contenido del ciclo actual y activa el botón principal
+            document.getElementById(cycleName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+            evt.currentTarget.style.color = 'var(--color-bg)';
+            
+            // Lógica para inicializar la sub-pestaña: siempre abre el Video por defecto
+            setTimeout(() => {
+                const firstResourceButton = document.querySelector(`.resource-tab-button.resource-${cycleName}`);
+                if (firstResourceButton) {
+                    // Crea un objeto de evento simulado para llamar a la función openResourceTab
+                    const simulatedEvent = { currentTarget: firstResourceButton };
+                    // Extrae el resourceType del onclick del botón (asumiendo que el primer botón es 'video')
+                    openResourceTab(simulatedEvent, cycleName, 'video');
+                }
+            }, 50); 
+        }
+
+        // Simula la apertura inicial en el Ciclo del Nitrógeno al cargar la página
+        window.onload = function() {
+            // Inicializa mostrando el primer ciclo
+            const nitrogenoButton = document.querySelector(".tab-button");
+            nitrogenoButton.classList.add("active");
+            nitrogenoButton.style.color = 'var(--color-bg)';
+            document.getElementById("nitrogeno").style.display = "block";
+            
+            // Inicializar la sub-pestaña de Nitrógeno (Video)
+            const firstResourceButton = document.querySelector('.resource-tab-button.resource-nitrogeno');
+            if (firstResourceButton) {
+                // Aquí usamos la función directamente para no depender del event object
+                openResourceTab({ currentTarget: firstResourceButton }, 'nitrogeno', 'video');
+            }
+        };
+
+        // Funciones para la caja de mensajes (en lugar de alert)
+        function showMessageBox(message) {
+            document.getElementById('messageContent').textContent = message;
+            document.getElementById('messageBox').style.display = 'block';
+        }
+
+        function closeMessageBox() {
+            document.getElementById('messageBox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
